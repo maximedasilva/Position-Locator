@@ -33,6 +33,7 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+      navigator.geolocation.getCurrentPosition(app.onSuccess, app.onError);
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
@@ -44,8 +45,33 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
+
+
+
         console.log('Received Event: ' + id);
-    }
+    },
+    onSuccess: function(position) {
+
+
+var  p=document.createTextNode('Latitude: '          + position.coords.latitude          + '\n' +
+        'Longitude: '         + position.coords.longitude         + '\n' +
+        'Altitude: '          + position.coords.altitude          + '\n' +
+        'Accuracy: '          + position.coords.accuracy          + '\n' +
+        'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+        'Heading: '           + position.coords.heading           + '\n' +
+        'Speed: '             + position.coords.speed             + '\n' +
+        'Timestamp: '         + position.timestamp                + '\n');
+
+        console.log(p);
+},
+
+// onError Callback receives a PositionError object
+//
+onError: function(error) {
+  
+  console.log("error");
+}
+
 };
 
 app.initialize();

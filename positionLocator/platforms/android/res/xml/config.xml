@@ -5,13 +5,16 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="Geolocation">
+        <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
+    </feature>
     <allow-intent href="market:*" />
-    <name>HelloCordova</name>
+    <name>Position locator</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+      A phone Application which send posiion
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="maximedasilva40@gmail.com" href="https://github.com/maximedasilva">
+        Maxime Da Silva
     </author>
     <content src="index.html" />
     <access origin="*" />
